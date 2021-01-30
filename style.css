@@ -51,6 +51,21 @@ nav ul li a:hover, a.active{
     border-radius: 5px;
     float: left;
 }
+#ticket-confirm{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 5px;
+    float: left;
+    display: none;
+}
+#ticket-confirm h2{
+    color: white;
+    background-color:#27ae60;
+    font-weight: bold;
+    word-wrap: normal;
+    padding: 10px;
+}
 .booking-form h3{
     margin: 10px 0px;
 }

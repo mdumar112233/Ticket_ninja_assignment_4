@@ -48,7 +48,6 @@ function ticketCalculation(){
     document.getElementById('vat').innerText = '$'+ vat;
     const total = totalprice + vat;
     document.getElementById('total').innerText = '$'+ total;
-
 }
 
 function calculationValue(numberOfTicket){
@@ -57,7 +56,17 @@ function calculationValue(numberOfTicket){
     return quantityNumber;
 }
 
-
+// CONFORMATION ALERT MESSAGE 
+document.getElementById('ticket-book').addEventListener('click', function(){
+    const bookingForm = document.querySelector('.booking-form');
+    bookingForm.style.display = 'none';
+    const bookingConfirm = document.getElementById('ticket-confirm');
+    bookingConfirm.style.display = 'block';
+    // const totalAmount = 
+    ticketCalculation();
+    // console.log(totalAmount)
+    // bookingConfirm.innerText = "totalAmount";
+})
 
 
 

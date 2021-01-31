@@ -40,7 +40,6 @@ function quantityHandler(id, isIncrease){
         }
     }
     ticketQuantity.value = totalTicket;
-    // document.getElementById(id).innerText = '0';
 }
 
 // TICKET CALCULATION
@@ -80,6 +79,10 @@ document.getElementById('ticket-book').addEventListener('click', function(){
 function formOpenClose(id, display){
     id.style.display = display;
 }
+
+document.getElementById('first-class-ticket').value = 0;
+document.getElementById('economy-ticket').value = 0;
+
 
 
 

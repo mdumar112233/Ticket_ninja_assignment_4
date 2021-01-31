@@ -1,17 +1,3 @@
-// SHORT FUNCTION FOR PLUS AND MINUS BTN
-function quantityHandler(id, isIncrease){
-    var ticketQuantity = document.getElementById(id);
-    var numberQuantity = parseInt(ticketQuantity.value);
-    let initalValue = numberQuantity;
-    if(isIncrease == true){
-        var totalTicket = numberQuantity + 1;
-    }
-    if(isIncrease == false && initalValue > 0){
-        var totalTicket = numberQuantity - 1;
-    }
-    ticketQuantity.value = totalTicket;
-}
-
 // first class ticket PLUS btn 
     document.getElementById('first-plus-btn').addEventListener('click', function(){
         quantityHandler('first-class-ticket', true);
@@ -37,6 +23,26 @@ function quantityHandler(id, isIncrease){
         ticketCalculation()
 })
 
+// SHORT FUNCTION FOR PLUS AND MINUS BTN
+function quantityHandler(id, isIncrease){
+    var ticketQuantity = document.getElementById(id);
+    var numberQuantity = parseInt(ticketQuantity.value);
+    let initalValue = numberQuantity;
+    if(isIncrease == true){
+        var totalTicket = numberQuantity + 1;
+    }
+    if(isIncrease == false){
+        if(initalValue > 0){
+        var totalTicket = numberQuantity - 1;
+        }
+        else{
+            return '0';
+        }
+    }
+    ticketQuantity.value = totalTicket;
+    // document.getElementById(id).innerText = '0';
+}
+
 // TICKET CALCULATION
 function ticketCalculation(){
     const firstTicketNumber = calculationValue('first-class-ticket');
@@ -59,14 +65,21 @@ function calculationValue(numberOfTicket){
 // CONFORMATION ALERT MESSAGE 
 document.getElementById('ticket-book').addEventListener('click', function(){
     const bookingForm = document.querySelector('.booking-form');
-    bookingForm.style.display = 'none';
+    formOpenClose(bookingForm, 'none');
     const bookingConfirm = document.getElementById('ticket-confirm');
-    bookingConfirm.style.display = 'block';
-    // const totalAmount = 
-    ticketCalculation();
-    // console.log(totalAmount)
-    // bookingConfirm.innerText = "totalAmount";
+    formOpenClose(bookingConfirm, 'block');
+
+    const totalAmount = document.getElementById('total').innerText;
+    document.getElementById('total-amount').innerHTML = totalAmount;
+    if(totalAmount === '$0'){
+        formOpenClose(bookingForm, 'block');
+        formOpenClose(bookingConfirm, 'none');
+    }
 })
+
+function formOpenClose(id, display){
+    id.style.display = display;
+}
 
 
 
